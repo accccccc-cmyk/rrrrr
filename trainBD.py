@@ -569,7 +569,7 @@ if __name__ == "__main__":
     index = index[:, args.exp_id % index.shape[1]]  # np.random.permutation(N)
     ref_ids = Info['ref_ids'][0, :]  #
     max_len = int(Info['max_len'][0])
-    trainindex = index[0:int(np.ceil((1 - args.test_ratio - 0.5*args.val_ratio) * len(index)))]
+    trainindex = index[0:int(np.ceil((1 - args.test_ratio - args.val_ratio) * len(index)))]
     testindex = index[int(np.ceil((1 - args.test_ratio) * len(index))):len(index)]
     train_index, val_index, test_index = [], [], []
     for i in range(len(ref_ids)):
