@@ -699,8 +699,6 @@ if __name__ == "__main__":
                 np.save(save_result_file, (y_pred, y_test, test_loss, SROCC, KROCC, PLCC, RMSE, test_index))
             torch.save(model.state_dict(), trained_model_file)
             best_val_criterion = val_PLCC#best_val_criterion = val_SROCC  # update best val SROCC
-            if best_val_criterion>85:
-                exit(0)
 
     if args.val_ratio > 0 and args.test_ratio == 0:
         model.load_state_dict(torch.load(trained_model_file))  #
